@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Comfort System | Lennox Residential</title>
+  <link rel="icon" type="image/svg+xml" href="https://ak-dyno-dump.s3.amazonaws.com/nudge-voice-assets/images/lennox-assets/lennox_logo.svg">
+  <link rel="stylesheet" href="/voice-agent/lennox/styles.css">
+</head>
+
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="util-bar">
+    <a href="#">About</a>
+    <a href="#">Sustainability</a>
+    <a href="#">Investors</a>
+    <a href="#">Careers</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Newsroom</a>
+    <a href="#">EN ▾</a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div class="logo-wrap">
+        <div class="logo-img"><span>LENNOX</span></div>
+      </div>
+      <div class="location-wrap">
+        <label>Your Location:</label>
+        <input type="text" placeholder="ZIP CODE">
+        <span class="location-icon">📍</span>
+      </div>
+      <a href="#" class="btn-find-dealer">Find a Dealer</a>
+    </div>
+    <nav class="header-nav">
+      <a href="#" class="active">Products</a>
+      <a href="#">Buyer's Guide</a>
+      <a href="#">Lennox Life</a>
+      <a href="#">Owners</a>
+      <a href="#" class="search-link">Search 🔍</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="section-hero">
+    <div class="hero-left">
+      <h1>The Ultimate System<br>for Perfect Air.</h1>
+      <p>The Ultimate Comfort System™ combines the best of the Dave Lennox <em>Signature®</em> Collection to create an
+        unprecedented whole-home comfort system that seamlessly and intelligently works together to stay finely tuned to
+        your home and deliver consistently clean, perfect air.</p>
+      <a href="#" class="btn-find-dealer" style="display:inline-block;">FIND A DEALER</a>
+    </div>
+    <div class="hero-right">
+      <img src="https://ak-dyno-dump.s3.amazonaws.com/nudge-voice-assets/images/lennox-assets/image_dotcom2@1.25x.png"
+        alt="Lennox Ultimate Comfort System" class="hero-product-img">
+    </div>
+  </section>
+
+  <!-- VIDEO BANNER -->
+  <div id="section-video" class="video-banner">
+    <div class="fan-grill"></div>
+    <div class="video-left-text">
+      <span class="video-left-bar"></span>
+      <span class="video-left-label">Variable-capacity<br>air conditioner</span>
+    </div>
+    <div class="video-center">
+      <div class="video-center-title">Meet the Most Efficient System Available.</div>
+      <div class="play-btn" title="Play video"></div>
+    </div>
+  </div>
+
+  <!-- ULTIMATE SOLUTION -->
+  <section id="section-hot-cold" class="ultimate-solution">
+    <h2>The Ultimate Solution.</h2>
+    <p class="sub">Here's how the Ultimate Comfort System handles the most common heating and cooling issues.</p>
+    <div class="solution-cards">
+      <div class="solution-card">
+        <div class="solution-card-icon">
+          <span style="font-size:52px;">🔥❄️</span>
+        </div>
+        <h3>Hot here? Cold there?</h3>
+        <p>Now, all you'll get is consistently perfect air.</p>
+        <a href="#" class="btn-learn-more">LEARN MORE</a>
+      </div>
+      <div id="section-energy-bills" class="solution-card">
+        <div class="solution-card-icon">
+          <span class="icon-dollar">$</span>
+        </div>
+        <h3>Overworked system running up your bills?</h3>
+        <p>Unmatched efficiency is the answer.</p>
+        <a href="#" class="btn-learn-more">LEARN MORE</a>
+      </div>
+      <div id="section-noisy" class="solution-card">
+        <div class="solution-card-icon">
+          <span class="icon-sound">🔊</span>
+        </div>
+        <h3>Unbearably noisy?</h3>
+        <p>Count on beyond quiet operation.</p>
+        <a href="#" class="btn-learn-more">LEARN MORE</a>
+      </div>
+      <div class="solution-card">
+        <div class="solution-card-icon">
+          <span class="icon-sneeze">🌿</span>
+        </div>
+        <h3>Sniffling and sneezing?</h3>
+        <p>Breathe easier with cleaner air.</p>
+        <a href="#" class="btn-learn-more">LEARN MORE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEAMLESS PRECISION -->
+  <section id="section-ac-component" class="seamless">
+    <h2>This is Seamless Precision.</h2>
+    <p class="sub">From heating and cooling to air purification and effortless controls, every component of the Ultimate
+      Comfort System works seamlessly together to deliver nothing short of perfect air.</p>
+
+    <div class="carousel-nav">
+      <button class="carousel-btn disabled" onclick="changeTab(-1)">&#8592;</button>
+      <button class="carousel-btn" onclick="changeTab(1)">&#8594;</button>
+    </div>
+
+    <div class="product-tabs" id="product-tabs">
+      <div class="product-tab" onclick="selectTab(0)">
+        <div class="product-tab-placeholder"
+          style="background:linear-gradient(145deg,#ccc,#aaa); width:44px; height:54px; border-radius:2px;"></div>
+      </div>
+      <div class="product-tab active" onclick="selectTab(1)">
+        <div class="product-tab-placeholder"
+          style="width:44px; height:58px; border-radius:2px; background:#2a2a2a; position:relative;">
+          <div
+            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:4px solid #666;background:radial-gradient(circle,#555 30%,#666 100%);">
+          </div>
+        </div>
+      </div>
+      <div class="product-tab" onclick="selectTab(2)">
+        <div style="width:44px; height:58px; background:linear-gradient(145deg,#d0d0c8,#b0b0a8); border-radius:2px;">
+        </div>
+      </div>
+      <div class="product-tab" onclick="selectTab(3)">
+        <div style="width:28px; height:58px; background:linear-gradient(145deg,#d0d0c8,#b0b0a8); border-radius:2px;">
+        </div>
+      </div>
+      <div class="product-tab" onclick="selectTab(4)">
+        <div style="width:44px; height:44px; background:linear-gradient(145deg,#ccc,#aaa); border-radius:3px;"></div>
+      </div>
+      <div class="product-tab" onclick="selectTab(5)">
+        <div
+          style="width:44px; height:44px; background:#1a1a1a; border-radius:4px; display:flex;align-items:center;justify-content:center;">
+          <div
+            style="width:32px;height:32px;border-radius:50%;border:3px solid #333;background:radial-gradient(circle,#222 30%,#333 100%);display:flex;align-items:center;justify-content:center;font-size:14px;color:#5af;font-weight:900;">
+            72</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-panel-1" class="product-detail" style="display:flex;">
+      <div class="product-detail-img">
+        <img src="https://ak-dyno-dump.s3.amazonaws.com/nudge-voice-assets/images/lennox-assets/sl25kcv.png"
+          alt="Lennox SL25KCV Air Conditioner" style="max-width:100%; max-height:100%; object-fit:contain;">
+      </div>
+      <div class="product-detail-info">
+        <h3>Dave Lennox Signature® Collection Air Conditioner SL25KCV<br>and Cold Climate Heat Pump SL22KLV</h3>
+        <ul>
+          <li>The most precise and efficient air conditioner available with industry-leading cooling efficiencies up to
+            26.00 SEER2</li>
+          <li>The most precise and efficient heat pump available with efficiency levels up to 21.10 SEER2, 13.2 EER2,
+            and 10.50 HSPF2</li>
+          <li>Heat Pump engineered with Lennox's most advanced cold climate technology</li>
+          <li>ENERGY STAR® (SL25KCV) and ENERGY STAR Most Efficient Cold Climate 2025 (SL22KLV) Certified</li>
+          <li>Features the aluminum Lennox Quantum™ Coil to weather the harshest elements</li>
+          <li>A fully digital product for more accurate and efficient performance</li>
+        </ul>
+        <div class="product-btns">
+          <button class="btn-outline-red">AIR CONDITIONER</button>
+          <button class="btn-outline-red">HEAT PUMP</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-panel-5" class="product-detail" style="display:none;">
+      <div class="product-detail-img">
+        <div
+          style="width:220px; height:240px; background:#111; border-radius:12px; border:6px solid #333; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(0,0,0,0.2); position:relative;">
+          <div style="text-align:center;">
+            <div
+              style="width:120px;height:120px;border-radius:50%;border:8px solid #333;background:radial-gradient(circle, #1a1a2e 40%, #253555 100%);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+              <div style="font-size:36px;font-weight:900;color:#fff;">72<sup style="font-size:14px;">°</sup></div>
+            </div>
+          </div>
+          <div
+            style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:#be1e2d;color:#fff;font-size:9px;font-weight:900;padding:2px 8px;border-radius:2px;font-style:italic;">
+            LENNOX</div>
+        </div>
+      </div>
+      <div class="product-detail-info">
+        <h3>Dave Lennox Signature® Collection Lennox S40 Smart Thermostat</h3>
+        <ul>
+          <li>The ultimate controller for more precise comfort</li>
+          <li>Awarded 2023 Green Builder Sustainable Product of the Year</li>
+          <li>Schedule IQ Technology automatically creates an energy-optimizing schedule of operation</li>
+          <li>Advanced diagnostics can be remotely shared with your local Lennox dealer to troubleshoot issues and avoid
+            unnecessary service visits</li>
+          <li>Control your thermostat remotely using Lennox Home app</li>
+        </ul>
+        <div class="product-btns">
+          <button class="btn-outline-red">LEARN MORE</button>
+        </div>
+        <div class="badge-row">
+          <div class="badge-item">
+            <div class="badge-circle" style="background:#f0f4ff;">🎵</div>
+            <span>amazon alexa<br>enabled</span>
+          </div>
+          <div class="badge-item">
+            <div class="badge-circle" style="background:#fff;">🔵</div>
+            <span>works with<br>Google Assistant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THERMOSTAT / COMMAND CENTER -->
+  <section id="section-thermostat" style="background:#fff; padding: 70px 0;">
+    <div class="thermostat-section">
+      <div class="thermo-left">
+        <!-- Tablet -->
+        <div class="thermo-tablet">
+          <div class="thermo-screen">
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;letter-spacing:1px;">living room
+              &nbsp; 7:28 pm</div>
+            <svg width="130" height="130" viewBox="0 0 130 130" style="position:absolute;opacity:0.8;">
+              <circle cx="65" cy="65" r="55" fill="none" stroke="#1e3a5a" stroke-width="8" />
+              <circle cx="65" cy="65" r="55" fill="none" stroke="#e04060" stroke-width="8" stroke-dasharray="173 173"
+                stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 65 65)" />
+              <circle cx="65" cy="65" r="55" fill="none" stroke="#4090e0" stroke-width="8" stroke-dasharray="100 246"
+                stroke-dashoffset="-173" stroke-linecap="round" transform="rotate(-90 65 65)" />
+            </svg>
+            <div class="thermo-temp-display">72<sup>°</sup></div>
+            <div class="thermo-info">inside &nbsp; 40%</div>
+            <div style="display:flex;gap:12px;margin-top:10px;font-size:9px;color:rgba(255,255,255,0.5);">
+              <span>heat-to<br><strong style="color:#e04060;font-size:11px;">70</strong></span>
+              <span>cool-to<br><strong style="color:#4090e0;font-size:11px;">74</strong></span>
+              <span>outside<br><strong style="color:#fff;font-size:11px;">65°</strong></span>
+            </div>
+          </div>
+        </div>
+        <!-- Phone -->
+        <div class="thermo-phone">
+          <div class="thermo-screen" style="background:#1a1a2e; padding:10px;">
+            <div
+              style="font-size:7px;color:rgba(255,255,255,0.3);margin-bottom:2px;text-align:left;width:100%;padding-left:4px;">
+              ← my homes &nbsp; abc.demo &nbsp; dave ▾</div>
+            <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-bottom:4px;">away / inside</div>
+            <svg width="80" height="80" viewBox="0 0 80 80" style="opacity:0.9;">
+              <circle cx="40" cy="40" r="33" fill="none" stroke="#1e3a5a" stroke-width="6" />
+              <circle cx="40" cy="40" r="33" fill="none" stroke="#4090e0" stroke-width="6" stroke-dasharray="104 104"
+                stroke-dashoffset="-52" stroke-linecap="round" transform="rotate(-90 40 40)" />
+            </svg>
+            <div style="font-size:28px;font-weight:900;color:#4090e0;margin-top:-56px;position:relative;z-index:2;">79°
+            </div>
+            <div style="margin-top:30px;display:flex;gap:6px;">
+              <span style="font-size:8px;color:rgba(255,255,255,0.4);">cool-to</span>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:6px;">
+              <span
+                style="font-size:16px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.3);padding:2px 6px;border-radius:50%;">−</span>
+              <span
+                style="font-size:16px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.3);padding:2px 6px;border-radius:50%;">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="thermo-right">
+        <h2>Welcome to Your Home Comfort Command Center.</h2>
+        <p>Unlike most smart thermostats, the Lennox S40 Smart Thermostat is more than a temperature regulator. It's the
+          command center for your entire system, with the incredible ability to monitor sensors throughout your home and
+          in all your equipment. From detecting air pollutants and customizing comfort by room to providing maintenance
+          and service reminders, it will even automatically alert you if your system goes out of tune and allow you to
+          remotely share diagnostics with your local Lennox dealer. The Lennox S40 Smart Thermostat not only provides
+          the most precise and perfect air, it also gives peace of mind.</p>
+        <div class="app-badges">
+          <div class="app-badge">
+            <span class="app-badge-icon">🍎</span>
+            <div class="app-badge-text">Available on<br><strong>the App Store</strong></div>
+          </div>
+          <div class="app-badge">
+            <span class="app-badge-icon">▶</span>
+            <div class="app-badge-text">Available on<br><strong>Google Play</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="section-reviews" class="reviews-section">
+    <div class="reviews-grid">
+      <!-- Left col -->
+      <div>
+        <div class="review-item">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">So quiet I can hardly tell it's running...</div>
+          <div class="review-author">— Skytalker</div>
+        </div>
+        <div class="review-item">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">More comfortable, lower humidity, my bill is 25% lower</div>
+          <div class="review-author">— Stephen762</div>
+        </div>
+        <div class="review-item">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Better than any system I've had in 40 years</div>
+          <div class="review-author">— Hardtoplease</div>
+        </div>
+      </div>
+      <!-- Center col -->
+      <div class="reviews-center-col">
+        <div class="review-item">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Installed and all my allergy, breathing, cooling, heating, high bill problems went
+            away</div>
+          <div class="review-author">— Fernando</div>
+        </div>
+        <img src="https://ak-dyno-dump.s3.amazonaws.com/nudge-voice-assets/images/lennox-assets/image_dotcom2@1.25x.png"
+          alt="Lennox System"
+          style="width:260px; height:200px; object-fit:contain; object-position:center bottom; margin:20px 0; filter:brightness(1.05);">
+        <div class="reviews-center-label">Rave Reviews</div>
+        <div class="reviews-center-sub">It's clear that once homeowners experience perfect air, nothing else will do.
+        </div>
+        <div class="review-item">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Our air quality and constant set temperature has been a dream</div>
+          <div class="review-author">— Rayiam</div>
+        </div>
+      </div>
+      <!-- Right col -->
+      <div>
+        <div class="review-item">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Saving me $125 per month</div>
+          <div class="review-author">— Hotrod</div>
+        </div>
+        <div class="review-item" style="padding-top:80px;">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">The first time in 18 years my wife and I are both comfortable</div>
+          <div class="review-author">— Comfy in Austin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section id="section-promise" class="promise-section">
+    <h2>Lennox is more than HVAC. It's a promise.</h2>
+    <p>We believe that the key to a healthy, comfortable home starts with the air with which we live and breathe. Our
+      dedication to the pursuit of perfect air has been a driving force behind each and every innovation since 1895. We
+      make the air cooler, warmer, dryer, cleaner and better with premium, award-winning systems that are exceptionally
+      quiet and energy efficient. All brought to you by dealers armed with the expertise and resources to deliver
+      complete home comfort.</p>
+    <div class="promise-links">
+      <div class="promise-link"><span class="promise-icon">🛡️</span> Lennox Premier Dealers</div>
+      <div class="promise-link"><span class="promise-icon">💰</span> Financing Options</div>
+      <div class="promise-link"><span class="promise-icon">❤️</span> Community Involvement</div>
+      <div class="promise-link"><span class="promise-icon">🔧</span> Product &amp; Labor Warranties</div>
+      <div class="promise-link"><span class="promise-icon">🏆</span> Award-Winning</div>
+      <div class="promise-link"><span class="promise-icon">⚡</span> ENERGY STAR® Certified</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="section-faq" style="background:#fff; border-top:1px solid #eee;">
+    <div class="faq-section">
+      <div class="faq-left">
+        <h2>Questions?</h2>
+        <p>Get your Ultimate Comfort System answers right here. If you need more info about getting perfect air in your
+          home or the ins and outs of HVAC, visit our FAQ page.</p>
+        <a href="#" class="btn-faqs">VIEW ALL FAQS</a>
+      </div>
+      <div class="faq-right">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            What components should be in my HVAC system?
+            <span class="faq-chevron">⌄</span>
+          </div>
+          <div class="faq-answer">A complete HVAC system typically includes an air conditioner or heat pump, a furnace
+            or air handler, an indoor coil, and a thermostat. The Ultimate Comfort System brings together the best
+            components from the Dave Lennox Signature® Collection for a fully integrated, high-efficiency system.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            What reasons are there to replace an entire system instead of just a broken component?
+            <span class="faq-chevron">⌄</span>
+          </div>
+          <div class="faq-answer">Replacing an entire system ensures all components are matched for peak efficiency,
+            reduces the risk of future breakdowns, and may qualify you for energy rebates. Mismatched components can
+            reduce efficiency and void warranties.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            How do I experience the benefits of an Ultimate Comfort HVAC system in my home?
+            <span class="faq-chevron">⌄</span>
+          </div>
+          <div class="faq-answer">Start by finding a certified Lennox dealer near you. They'll perform a free in-home
+            assessment, recommend the right system for your home's size and needs, and handle professional installation
+            to ensure optimal performance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEALER CTA -->
+  <section id="section-dealer" class="dealer-cta">
+    <div class="dealer-cta-left">
+      <h2>Ready to Rethink Your Air?</h2>
+      <p>Schedule an in-home consultation with a Lennox dealer and start on the path to perfect air.</p>
+      <a href="#" class="btn-find-dealer" style="display:inline-block;">FIND A DEALER</a>
+    </div>
+    <div class="dealer-cta-right">
+      <img src="https://ak-dyno-dump.s3.amazonaws.com/nudge-voice-assets/images/lennox-assets/image_dotcom2@1.25x.png"
+        alt="Lennox System" style="width:340px; height:240px; object-fit:contain; object-position:center bottom;">
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>*Efficiency claim based on comparison of highest Designated Tested Combination SEER of the SL25XPV as compared to
+      the Designated Test Combination SEER of the competitive variable capacity compressor units as published in AHRI
+      (June 2021). Actual system combination efficiency may vary; consult AHRI for exact system efficiencies. Precision
+      claim based on the average cooling capacity range of the SL25XPV as compared to the average cooling capacity range
+      of the competitive variable capacity compressor units based on published competitive data (June 2021). Cooling
+      capacity ranges calculated across 2, 3, 4 and 5 tonnage at maximum and minimum speed at ARI standard rating
+      conditions: 95°F outdoor and 80°/67° indoor (80°F dry bulb and 67°F wet bulb).</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>LENNOX</span></div>
+        <p><strong>Lennox (NYSE: LII)</strong> is a leader in energy-efficient climate-control solutions.</p>
+        <p class="tagline">Dedicated to sustainability and creating comfortable and healthier environments for our
+          residential and commercial customers while reducing our impact on the environment.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Residential HVAC</h4>
+        <ul>
+          <li class="bold"><a href="#">Homeowner</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Find a Dealer</a></li>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Media Room</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Commercial HVAC</h4>
+        <ul>
+          <li class="bold"><a href="#">Contractors</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Literature</a></li>
+        </ul>
+        <br>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Find a Contractor</a></li>
+          <li><a href="#">National Account Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Lennox International Inc. All Rights Reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Do Not Sell My Personal Information</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- [OLD FLOW] Lennox Nudge Chips (separate chip elements) — replaced by in-bubble nudges below -->
+  <!-- <div id="lennox-nudge-chips"></div> -->
+  <script>
+    const LENNOX_NUDGES = [
+      {
+        id: 'nudge-1',
+        trigger: 'scroll:section-hero',
+        text: "Is this for a new home or replacing an existing system?"
+      },
+      {
+        id: 'nudge-2',
+        trigger: 'scroll:section-hot-cold',
+        text: "Trying to fix hot and cold spots, or just upgrading efficiency?"
+      },
+      {
+        id: 'nudge-3',
+        trigger: 'scroll:section-ac-component',
+        text: "Wondering if Lennox is worth it for your home?",
+        prompt: "Wondering if Lennox is worth it for your home?"
+      },
+      {
+        id: 'nudge-4',
+        trigger: 'scroll:section-reviews',
+        text: "Every sale has a story. Here's what they're saying."
+      },
+      {
+        id: 'nudge-5',
+        trigger: 'exit_intent',
+        text: "Planning to replace just the outdoor unit or the full system?"
+      }
+    ];
+
+    let agentOpened = false;
+    let activeNudge = null;
+
+    function showNudgeInBubble(nudge) {
+      if (agentOpened || nudge === activeNudge) return;
+      activeNudge = nudge;
+      window.dispatchEvent(new CustomEvent('swirl:nudge', {
+        detail: { should_nudge: true, message: nudge.text, prompt: nudge.prompt || nudge.text }
+      }));
+    }
+
+    function setupNudgeTriggers() {
+      // nudge-1: fire on page load after 1.8s (bypass activeNudge dedup)
+      const heroNudge = LENNOX_NUDGES.find(n => n.id === 'nudge-1');
+      setTimeout(() => {
+        if (agentOpened) return;
+        activeNudge = heroNudge;
+        window.dispatchEvent(new CustomEvent('swirl:nudge', {
+          detail: { should_nudge: true, message: heroNudge.text, prompt: heroNudge.prompt || heroNudge.text }
+        }));
+      }, 1800);
+
+      // scroll nudges — persistent: update bubble whenever a section enters view
+      LENNOX_NUDGES.forEach(nudge => {
+        const [type, value] = nudge.trigger.split(':');
+        if (type !== 'scroll') return;
+
+        const sectionEl = document.getElementById(value);
+        if (!sectionEl) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) showNudgeInBubble(nudge);
+          });
+        }, { threshold: 0.3 });
+        observer.observe(sectionEl);
+      });
+
+      // exit intent
+      const exitNudge = LENNOX_NUDGES.find(n => n.trigger === 'exit_intent');
+      document.addEventListener('mouseleave', function onMouseLeave(e) {
+        if (e.clientY <= 0) showNudgeInBubble(exitNudge);
+      });
+    }
+
+    // Stop nudges when agent modal opens
+    const modalObserver = new MutationObserver(() => {
+      const modal = document.querySelector('.swirl-ai-voice-modal');
+      if (modal) agentOpened = true;
+    });
+    modalObserver.observe(document.body, { childList: true, subtree: true });
+
+    document.addEventListener('DOMContentLoaded', setupNudgeTriggers);
+
+    // Product tabs
+    function selectTab(idx) {
+      document.querySelectorAll('.product-tab').forEach((t, i) => {
+        t.classList.toggle('active', i === idx);
+      });
+      document.getElementById('tab-panel-1').style.display = (idx === 1) ? 'flex' : 'none';
+      document.getElementById('tab-panel-5').style.display = (idx === 5) ? 'flex' : 'none';
+    }
+
+    let currentTab = 1;
+    function changeTab(dir) {
+      currentTab = Math.max(0, Math.min(5, currentTab + dir));
+      selectTab(currentTab);
+      document.querySelectorAll('.carousel-btn')[0].classList.toggle('disabled', currentTab === 0);
+      document.querySelectorAll('.carousel-btn')[1].classList.toggle('disabled', currentTab === 5);
+    }
+
+    // FAQ accordion
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+    }
+  </script>
+
+  <!-- IMPORTANT: Plugin initialization div -->
+  <!-- Plugin initialization - Lennox UCP -->
+  <div id="swirl-ai-nva" data-id="" data-nudge-trigger="" data-send-prompt="true" data-default-prompt="Ask Lennox AI"
+    data-assets-base="https://ak-dyno-dump.s3.amazonaws.com/nudge-voice-assets/images/lennox-assets/"></div>
+  <script src="/voice-agent/lennox/swirl-embed.js"></script>
+</body>
+
+</html>
