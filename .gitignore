@@ -1,0 +1,18 @@
+node_modules
+.env
+yarn-error.log
+run.js
+voice-agent.run.js
+dist/
+prisma/json-schema/json-schema.json
+postman.txt
+junk.txt
+.DS_STORE
+.claude/
+evaluation-exports/
+data/
+v2/
+# Token usage logs
+logs/
+tmp/
+.serverless/
