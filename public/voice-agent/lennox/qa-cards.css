@@ -1,0 +1,375 @@
+/**
+ * Swirl AI Voice Agent - Qualification & Selection Cards
+ * CSS for Lennox AC Qualification Cards (Cooling Mode, Location, Space Size)
+ * Built by Swirl AI
+ */
+
+/* ========================================================================
+   QUALIFICATION CARDS - Icon Row Layout
+   ======================================================================== */
+
+.swirl-qa-card {
+  background: radial-gradient(
+    140% 100% at 50% 0%,
+    rgba(88, 91, 98, 0.52) 0%,
+    rgba(52, 55, 63, 0.62) 58%,
+    rgba(42, 45, 53, 0.7) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+  padding: 20px 18px;
+  margin-top: 8px;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  animation: swirl-qa-fade-in 0.3s ease-out both;
+}
+
+@keyframes swirl-qa-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swirl-qa-title {
+  font-size: 11px;
+  color: rgba(214, 218, 226, 0.65);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.swirl-qa-options-grid {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.swirl-qa-option {
+  flex: 1;
+  min-width: 120px;
+  background: linear-gradient(160deg, rgba(80, 83, 91, 0.55) 0%, rgba(60, 63, 71, 0.55) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.swirl-qa-option:hover {
+  background: linear-gradient(160deg, rgba(100, 103, 111, 0.65) 0%, rgba(80, 83, 91, 0.65) 100%);
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.swirl-qa-option:active {
+  transform: translateY(0);
+}
+
+.swirl-qa-option.selected {
+  background: linear-gradient(160deg, rgba(58, 155, 255, 0.65) 0%, rgba(38, 115, 215, 0.65) 100%);
+  border-color: rgba(136, 200, 255, 0.6);
+  box-shadow: 0 8px 20px rgba(58, 155, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.swirl-qa-option-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(233, 236, 242, 0.88);
+  font-size: 52px;
+}
+
+.swirl-qa-option-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.swirl-qa-option-label {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: rgba(243, 245, 250, 0.9);
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.swirl-qa-option-radio {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(218, 221, 228, 0.8);
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.swirl-qa-option.selected .swirl-qa-option-radio {
+  border-color: rgba(136, 200, 255, 0.9);
+  background: rgba(136, 200, 255, 0.3);
+}
+
+.swirl-qa-option.selected .swirl-qa-option-radio::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #58fbff;
+  font-weight: bold;
+}
+
+/* ========================================================================
+   QUALIFICATION CARDS - Radio List Layout
+   ======================================================================== */
+
+.swirl-qa-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.swirl-qa-option-radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(78, 81, 89, 0.52) 0%, rgba(58, 61, 69, 0.56) 100%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.swirl-qa-option-radio-wrapper:hover {
+  background: linear-gradient(160deg, rgba(98, 101, 109, 0.62) 0%, rgba(78, 81, 89, 0.66) 100%);
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateX(2px);
+}
+
+.swirl-qa-option-radio-wrapper.selected {
+  background: linear-gradient(160deg, rgba(58, 155, 255, 0.55) 0%, rgba(38, 115, 215, 0.55) 100%);
+  border-color: rgba(136, 200, 255, 0.6);
+}
+
+.swirl-qa-radio-circle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(220, 223, 229, 0.82);
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.swirl-qa-option-radio-wrapper.selected .swirl-qa-radio-circle {
+  border-color: rgba(136, 200, 255, 0.9);
+  background: rgba(136, 200, 255, 0.3);
+}
+
+.swirl-qa-option-radio-wrapper.selected .swirl-qa-radio-circle::after {
+  content: '✓';
+  font-size: 10px;
+  color: #58fbff;
+  font-weight: bold;
+}
+
+.swirl-qa-radio-label {
+  font-size: 13px;
+  color: rgba(243, 245, 250, 0.9);
+  font-weight: 500;
+  flex: 1;
+}
+
+/* ========================================================================
+   QUALIFICATION STEP TRACKING
+   ======================================================================== */
+
+.swirl-qa-step-tracker {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.swirl-qa-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+.swirl-qa-step.completed {
+  background: rgba(88, 198, 155, 0.15);
+  border-color: rgba(88, 198, 155, 0.3);
+  color: rgba(88, 198, 155, 0.9);
+}
+
+.swirl-qa-step.active {
+  background: rgba(58, 155, 255, 0.2);
+  border-color: rgba(136, 200, 255, 0.4);
+  color: rgba(136, 200, 255, 0.95);
+  font-weight: 600;
+}
+
+.swirl-qa-step-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.swirl-qa-step.completed .swirl-qa-step-indicator {
+  background: rgba(88, 198, 155, 0.3);
+  color: #58c69b;
+  font-weight: bold;
+  content: '✓';
+}
+
+.swirl-qa-step.active .swirl-qa-step-indicator {
+  background: rgba(136, 200, 255, 0.3);
+}
+
+/* ========================================================================
+   ANIMATED LOADING STATE
+   ======================================================================== */
+
+.swirl-qa-loading-pulse {
+  animation: swirl-qa-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes swirl-qa-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ========================================================================
+   RESPONSIVE LAYOUT
+   ======================================================================== */
+
+@media (max-width: 768px) {
+  .swirl-qa-options-grid {
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .swirl-qa-option {
+    min-width: 100%;
+    flex: none;
+    padding: 16px 14px;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .swirl-qa-option-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 44px;
+  }
+
+  .swirl-qa-option-label {
+    font-size: 16px;
+    text-align: left;
+    flex: 1;
+  }
+
+  .swirl-qa-card {
+    padding: 16px 14px;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swirl-qa-option {
+    padding: 14px 12px;
+  }
+
+  .swirl-qa-option-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 40px;
+  }
+
+  .swirl-qa-option-label {
+    font-size: 14px;
+  }
+
+  .swirl-qa-title {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .swirl-qa-card {
+    padding: 14px 12px;
+  }
+}
+
+/* ========================================================================
+   ACCESSIBILITY
+   ======================================================================== */
+
+.swirl-qa-option:focus-visible {
+  outline: 2px solid rgba(136, 200, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.swirl-qa-option-radio-wrapper:focus-visible {
+  outline: 2px solid rgba(136, 200, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .swirl-qa-card {
+    animation: none;
+  }
+
+  .swirl-qa-option,
+  .swirl-qa-option-radio-wrapper,
+  .swirl-qa-step {
+    transition: none;
+  }
+
+  .swirl-qa-loading-pulse {
+    animation: none;
+  }
+}
