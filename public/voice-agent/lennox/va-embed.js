@@ -817,55 +817,14 @@
       console.log(
         '[Swirl AI] ✅ Nudge Plugin Initialized Successfully (WebRTC Dynamic Mode)'
       )
-
-      // Append Posthog script for analytics
-      appendPosthogScript()
     } catch (error) {
       console.error('[Swirl AI] ❌ Initialization Error:', error)
     }
   }
 
-  function appendPosthogScript() {
-    const scriptEl = document.createElement('script')
-    scriptEl.type = 'text/javascript'
-    scriptEl.text = `
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_js7ivtV0gIdOYvGlKin9bJbVuHbT823I8kZntiBYPfU', {
-            api_host: 'https://us.i.posthog.com',
-            person_profiles: 'always',
-            // Session Replay - Full Recording
-            session_recording: {
-                maskAllInputs: false,
-                maskInputOptions: {
-                    password: true
-                },
-                recordCrossOriginIframes: true,
-            },
-            capture_pageview: true,
-            capture_pageleave: true,
-            loaded: (posthogInstance) => {
-                posthogInstance.register({
-                    nva_model: '${window.SWIRL_CONFIG.MODEL_ID}',
-                    nva_org: 'lennox',
-                    nva_source: 'frontend'
-                });
-                // Start session recording immediately
-                posthogInstance.startSessionRecording();
-                window.SWIRL_POSTHOG_READY = true;
-            },
-        })
-    `
-    document.head.appendChild(scriptEl)
-
-    console.log('[Swirl AI] PostHog Initialized with Session Replay.')
-  }
-
   // ===================================================
-  // POSTHOG LOGGER - Unified Event Tracking
+  // SESSION TOKEN STATS (token-usage debugging)
   // ===================================================
-
-  // Session token for correlation (set when session is created)
-  let posthogSessionToken = null
 
   // Cumulative session token usage tracking
   let sessionTokenStats = {
@@ -1291,283 +1250,6 @@
     }
 
     return optimized
-  }
-
-  // PostHog session replay URL (captured when session starts)
-  let posthogReplayUrl = null
-
-  // Set session token for PostHog correlation
-  const setPosthogSessionToken = token => {
-    posthogSessionToken = token
-    posthogReplayUrl = null // Reset replay URL for new session
-    resetSessionTokenStats() // Reset stats for new session
-    if (window.posthog && token) {
-      // Identify user by session token for correlation with backend
-      window.posthog.identify(token)
-      window.posthog.register({ nva_session_token: token })
-
-      // Capture the session replay URL for debugging
-      try {
-        posthogReplayUrl = window.posthog.get_session_replay_url({
-          withTimestamp: true
-        })
-        console.log('[PostHog] 🎥 Session Replay URL:', posthogReplayUrl)
-      } catch (err) {
-        console.warn('[PostHog] Could not get replay URL:', err.message)
-      }
-
-      console.log(
-        '[PostHog] Session token set for correlation:',
-        token.substring(0, 8) + '...'
-      )
-    }
-  }
-
-  // Core logging function
-  const logEvent = (eventName, properties = {}) => {
-    if (!window.posthog) {
-      console.warn('[PostHog] Not initialized, skipping event:', eventName)
-      return
-    }
-
-    const eventData = {
-      ...properties,
-      nva_session_token: posthogSessionToken,
-      // Include cumulative token stats for debugging
-      session_total_tokens: sessionTokenStats.totalTokens,
-      session_response_count: sessionTokenStats.responseCount,
-      nva_model: window.SWIRL_CONFIG?.MODEL_ID,
-      nva_source: 'frontend',
-      timestamp: new Date().toISOString()
-    }
-
-    window.posthog.capture(eventName, eventData)
-    console.log(
-      `[PostHog] ${eventName}:`,
-      JSON.stringify(properties).substring(0, 200)
-    )
-  }
-
-  // Session Events
-  const logSessionStarted = data => {
-    logEvent('session_started', {
-      model_id: data.modelId,
-      model_name: data.modelName,
-      replay_url: posthogReplayUrl,
-      posthog_session_id: window.posthog?.get_session_id?.() || null
-    })
-  }
-
-  const logSessionError = data => {
-    logEvent('session_error', {
-      error: data.error,
-      stage: data.stage
-    })
-  }
-
-  const logSessionEnded = data => {
-    logEvent('session_ended', {
-      duration_ms: data.durationMs,
-      total_turns: data.totalTurns
-    })
-  }
-
-  // WebRTC Events
-  const logWebRTCConnecting = () => {
-    logEvent('webrtc_connecting', {})
-  }
-
-  const logWebRTCConnected = data => {
-    logEvent('webrtc_connected', {
-      latency_ms: data.latencyMs
-    })
-  }
-
-  const logWebRTCError = data => {
-    logEvent('webrtc_error', {
-      error: data.error,
-      ice_state: data.iceState
-    })
-  }
-
-  // Audio Events
-  const logMicPermissionGranted = () => {
-    logEvent('mic_permission_granted', {})
-  }
-
-  const logMicPermissionDenied = () => {
-    logEvent('mic_permission_denied', {})
-  }
-
-  const logMicMuted = data => {
-    logEvent('mic_muted', {
-      by: data.by // 'user' or 'system'
-    })
-  }
-
-  const logMicUnmuted = () => {
-    logEvent('mic_unmuted', {})
-  }
-
-  // Conversation Events
-  const logUserSpeechStarted = data => {
-    logEvent('user_speech_started', {
-      turn_number: data.turnNumber
-    })
-  }
-
-  const logUserSpeechStopped = data => {
-    logEvent('user_speech_stopped', {
-      duration_ms: data.durationMs,
-      turn_number: data.turnNumber
-    })
-  }
-
-  const logUserTranscript = data => {
-    logEvent('user_transcript', {
-      text: data.text,
-      turn_number: data.turnNumber
-    })
-  }
-
-  const logAIResponseStarted = data => {
-    logEvent('ai_response_started', {
-      turn_number: data.turnNumber
-    })
-  }
-
-  const logAIResponseText = data => {
-    logEvent('ai_response_text', {
-      text: data.text,
-      turn_number: data.turnNumber
-    })
-  }
-
-  const logAIResponseCompleted = data => {
-    logEvent('ai_response_completed', {
-      duration_ms: data.durationMs,
-      turn_number: data.turnNumber,
-      // Token usage from response.done
-      input_tokens: data.inputTokens,
-      output_tokens: data.outputTokens,
-      total_tokens: data.totalTokens,
-      // Detailed token breakdown
-      input_text_tokens: data.inputTextTokens,
-      input_audio_tokens: data.inputAudioTokens,
-      input_cached_tokens: data.inputCachedTokens,
-      output_text_tokens: data.outputTextTokens,
-      output_audio_tokens: data.outputAudioTokens
-    })
-  }
-
-  // Token Usage Event - detailed tracking
-  const logTokenUsage = data => {
-    logEvent('tokens_used', {
-      turn_number: data.turnNumber,
-      context: data.context || 'response',
-      // Summary
-      input_tokens: data.inputTokens,
-      output_tokens: data.outputTokens,
-      total_tokens: data.totalTokens,
-      // Input breakdown
-      input_text_tokens: data.inputTextTokens,
-      input_audio_tokens: data.inputAudioTokens,
-      input_cached_tokens: data.inputCachedTokens,
-      // Output breakdown
-      output_text_tokens: data.outputTextTokens,
-      output_audio_tokens: data.outputAudioTokens
-    })
-  }
-
-  const logAIInterrupted = data => {
-    logEvent('ai_interrupted', {
-      reason: data.reason,
-      turn_number: data.turnNumber
-    })
-  }
-
-  // Tool Events
-  const logToolCallRequested = data => {
-    logEvent('tool_call_requested', {
-      tool_name: data.toolName,
-      args: data.args,
-      call_id: data.callId
-    })
-  }
-
-  const logToolCallCompleted = data => {
-    logEvent('tool_call_completed', {
-      tool_name: data.toolName,
-      duration_ms: data.durationMs,
-      success: data.success,
-      call_id: data.callId
-    })
-  }
-
-  const logToolCallError = data => {
-    logEvent('tool_call_error', {
-      tool_name: data.toolName,
-      error: data.error,
-      call_id: data.callId
-    })
-  }
-
-  // Debug/Error Events - for extensive debugging
-  const logDebugError = data => {
-    logEvent('debug_error', {
-      category: data.category, // 'webrtc', 'api', 'audio', 'tool', 'session'
-      error: data.error,
-      error_stack: data.errorStack,
-      context: data.context,
-      turn_number: data.turnNumber,
-      // Include full session stats for debugging
-      session_stats: { ...sessionTokenStats }
-    })
-  }
-
-  const logOpenAIError = data => {
-    logEvent('openai_error', {
-      error_type: data.errorType,
-      error_code: data.errorCode,
-      error_message: data.errorMessage,
-      turn_number: data.turnNumber,
-      session_stats: { ...sessionTokenStats }
-    })
-  }
-
-  // UI Events
-  const logModalOpened = data => {
-    logEvent('modal_opened', {
-      trigger: data.trigger // 'nudge' or 'prompt'
-    })
-  }
-
-  const logModalClosed = data => {
-    logEvent('modal_closed', {
-      duration_ms: data.durationMs,
-      turns_count: data.turnsCount
-    })
-  }
-
-  const logMediaDisplayed = data => {
-    logEvent('media_displayed', {
-      type: data.type, // 'images', 'videos', 'reviews'
-      count: data.count
-    })
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  const logBookingSlotSelected = data => {
-    logEvent('booking_slot_selected', {
-      date: data.date,
-      time: data.time
-    })
-  }
-
-  const logLocationSelected = data => {
-    logEvent('location_selected', {
-      location_name: data.locationName
-    })
   }
 
   // ===================================================
@@ -3534,15 +3216,9 @@
     modal.style.height = `${vh}px`
   }
 
-  // Track modal open time for duration calculation
-  let modalOpenTime = null
-
   function openModal() {
     console.log('[Swirl AI] 🎤 Opening Voice Agent Modal...')
     modalOpen = true
-    modalOpenTime = Date.now()
-    // PostHog: Log modal opened
-    logModalOpened({ trigger: pendingPromptToSend ? 'prompt' : 'nudge' })
 
     let modal = document.getElementById('swirl-ai-voice-modal')
 
@@ -3723,12 +3399,9 @@
           // Setup audio visualization for the new stream
           setupAudioVisualization()
         }
-
-        logMicPermissionGranted()
       } catch (error) {
         console.log('[Swirl AI] ❌ Microphone permission denied again')
         updateStatusMessage('Microphone denied - staying in text mode')
-        logMicPermissionDenied()
         return // Don't switch to voice mode, stay in text mode
       }
     }
@@ -3808,16 +3481,6 @@
   function closeModal() {
     console.log('[Swirl AI] 🔽 Closing Voice Agent Modal...')
     hideConnectionLoader()
-    // PostHog: Log modal closed with duration and turns
-    const modalDuration = modalOpenTime ? Date.now() - modalOpenTime : 0
-    logModalClosed({
-      durationMs: modalDuration,
-      turnsCount: currentConversationTurn
-    })
-    logSessionEnded({
-      durationMs: modalDuration,
-      totalTurns: currentConversationTurn
-    })
     modalOpen = false
 
     const modal = document.getElementById('swirl-ai-voice-modal')
@@ -4589,11 +4252,8 @@
     lastMentionedCard = null
     resetNudge4Flow()
 
-    const connectionStartTime = Date.now()
-
     try {
       updateStatusMessage('Connecting...')
-      logWebRTCConnecting()
 
       // 1. Get ephemeral token and session config from server
       console.log('[WebRTC] Fetching session token...')
@@ -4662,32 +4322,24 @@
         console.log('═'.repeat(70) + '\n')
       }
 
-      // Test mode: Check for custom session ID
-      let posthogSessionId = session_token
+      // Test mode: allow a custom session ID to be displayed and locked in the test input
+      let sessionId = session_token
       if (isTestMode) {
         const testInput = document.getElementById('swirl-ai-test-input')
         const customSessionId = testInput?.value?.trim()
         if (customSessionId) {
-          posthogSessionId = customSessionId
-          console.log(
-            '[WebRTC] 🧪 Using custom session ID for PostHog:',
-            customSessionId
-          )
+          sessionId = customSessionId
         }
         // Update input to show actual session ID being used and lock it
         if (testInput) {
-          testInput.value = posthogSessionId
+          testInput.value = sessionId
           testInput.disabled = true
           testInput.style.opacity = '0.8'
         }
       }
 
-      // PostHog: Set session token for correlation and log session started
-      setPosthogSessionToken(posthogSessionId)
-      logSessionStarted({
-        modelId: model?.id || window.SWIRL_CONFIG.MODEL_ID,
-        modelName: model?.name || window.SWIRL_CONFIG.MODEL_ID
-      })
+      // Reset token-usage stats for the new session
+      resetSessionTokenStats()
 
       // 2. Get microphone access
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -4757,10 +4409,8 @@
           })
         }
 
-        logMicPermissionGranted()
         hasRealMicrophone = true // User granted mic permission
       } catch (micError) {
-        logMicPermissionDenied()
         hasRealMicrophone = false // User denied mic permission
         console.log(
           '[WebRTC] ⚠️ Microphone access denied - creating silent audio track for text-only mode'
@@ -4910,24 +4560,11 @@
         textSendBtn.style.cursor = 'pointer'
       }
 
-      // PostHog: Log successful connection
-      const connectionLatency = Date.now() - connectionStartTime
-      logWebRTCConnected({ latencyMs: connectionLatency })
     } catch (error) {
       console.error('[WebRTC] ❌ Connection error:', error)
       updateStatusMessage('Connection failed: ' + error.message)
       isConnected = false
       hideConnectionLoader()
-
-      // PostHog: Log connection error
-      logWebRTCError({
-        error: error.message,
-        iceState: peerConnection?.iceConnectionState || 'unknown'
-      })
-      logSessionError({
-        error: error.message,
-        stage: 'webrtc_connection'
-      })
     }
   }
 
@@ -5009,15 +4646,11 @@
           console.log('[WebRTC] 🎤 User started speaking')
           handleNewUserQuestion() // Mark new conversation turn
           handleUserSpeechStarted()
-          // PostHog: Log user speech started
-          logUserSpeechStarted({ turnNumber: currentConversationTurn })
           break
 
         case 'input_audio_buffer.speech_stopped':
           console.log('[WebRTC] 🛑 User stopped speaking')
           handleUserSpeechStopped()
-          // PostHog: Log user speech stopped
-          logUserSpeechStopped({ turnNumber: currentConversationTurn })
           // TOKEN DEBUG: Pre-register the user turn immediately so it appears in the
           // correct position in the tracker — before the AI response turn. The transcript
           // text is a placeholder and will be updated when transcription.completed fires.
@@ -5033,11 +4666,6 @@
         case 'conversation.item.input_audio_transcription.completed':
           console.log('[WebRTC] 📝 User said:', message.transcript)
           showUserTranscript(message.transcript)
-          // PostHog: Log full user transcript
-          logUserTranscript({
-            text: message.transcript,
-            turnNumber: currentConversationTurn
-          })
           // Persist zip code if user mentioned one
           detectAndSaveZip(message.transcript)
           // Voice product selection → checkout (same as clicking Buy Now)
@@ -5059,8 +4687,6 @@
         case 'response.created':
           console.log('[WebRTC] 🤖 AI response starting')
           handleAISpeechStarted()
-          // PostHog: Log AI response started
-          logAIResponseStarted({ turnNumber: currentConversationTurn })
           break
 
         case 'response.audio_transcript.delta':
@@ -5069,11 +4695,6 @@
 
         case 'response.audio_transcript.done':
           console.log('[WebRTC] ✅ AI transcript complete')
-          // PostHog: Log full AI response text
-          logAIResponseText({
-            text: currentAssistantMessage,
-            turnNumber: currentConversationTurn
-          })
           // TOKEN DEBUG: Track assistant response in context
           if (DEBUG_TOKENS && currentAssistantMessage) {
             conversationContextTracker.addTurn(
@@ -5128,12 +4749,6 @@
 
         case 'response.function_call_arguments.done':
           console.log('[WebRTC] 🔧 Tool call:', message.name)
-          // PostHog: Log tool call requested (will log completion in handleToolCall)
-          logToolCallRequested({
-            toolName: message.name,
-            args: message.arguments ? JSON.parse(message.arguments) : {},
-            callId: message.call_id
-          })
           handleToolCall(message)
           break
 
@@ -5197,7 +4812,6 @@
               total: responseUsage.total_tokens,
               session_total: sessionTokenStats.totalTokens
             })
-            logTokenUsage(usageData)
 
             // TOKEN DEBUG: Show detailed breakdown of what's consuming tokens
             if (DEBUG_TOKENS) {
@@ -5286,9 +4900,6 @@
             }
           }
 
-          // PostHog: Log AI response completed with token data
-          logAIResponseCompleted(usageData)
-
           // Render queued qualification/selection UI from backend /turn.
           if (pendingTurnUiComponents?.length) {
             applyBackendTurnUiComponents(pendingTurnUiComponents)
@@ -5364,11 +4975,6 @@
         case 'response.cancelled':
           console.log('[WebRTC] 🛑 Response successfully cancelled')
           handleAISpeechEnded()
-          // PostHog: Log AI interrupted
-          logAIInterrupted({
-            reason: 'user_speech',
-            turnNumber: currentConversationTurn
-          })
 
           // Clear audio buffer completely after successful cancellation
           if (remoteAudioEl && remoteAudioEl.srcObject) {
@@ -5429,26 +5035,11 @@
           }
 
           console.error('[WebRTC] ❌ Error:', message.error)
-          // PostHog: Log OpenAI error
-          logOpenAIError({
-            errorType: message.error?.type,
-            errorCode: message.error?.code,
-            errorMessage: message.error?.message,
-            turnNumber: currentConversationTurn
-          })
           showError(message.error?.message || 'An error occurred')
           break
       }
     } catch (error) {
       console.error('[WebRTC] ❌ Error parsing message:', error)
-      // PostHog: Log debug error
-      logDebugError({
-        category: 'webrtc',
-        error: error.message,
-        errorStack: error.stack,
-        context: 'message_parsing',
-        turnNumber: currentConversationTurn
-      })
     }
   }
 
@@ -5674,7 +5265,6 @@
     const functionName = message.name
     const callId = message.call_id
     const toolTurn = currentConversationTurn
-    const toolStartTime = Date.now()
 
     console.log(`[WebRTC] 🔧 Tool call: ${functionName}`)
 
@@ -5998,21 +5588,8 @@
       )
 
       console.log('[WebRTC] 🔧 ✅ Tool call complete')
-      // PostHog: Log tool call completed
-      logToolCallCompleted({
-        toolName: functionName,
-        durationMs: Date.now() - toolStartTime,
-        success: true,
-        callId: callId
-      })
     } catch (error) {
       console.error('[WebRTC] 🔧 ❌ Tool call failed:', error)
-      // PostHog: Log tool call error
-      logToolCallError({
-        toolName: functionName,
-        error: error.message,
-        callId: callId
-      })
 
       // Send error back to OpenAI
       const errorOutput = {
@@ -6061,12 +5638,6 @@
           audioTrack.enabled ? 'unmuted' : 'muted'
         } by user`
       )
-      // PostHog: Log mic mute/unmute
-      if (audioTrack.enabled) {
-        logMicUnmuted()
-      } else {
-        logMicMuted({ by: 'user' })
-      }
 
       const micBtn = document.querySelector('.swirl-ai-voice-mic-btn')
       const unmutedIcon = document.querySelector('.swirl-ai-mic-icon-unmuted')
@@ -8505,9 +8076,6 @@ color: transparent;
       return
     }
 
-    // PostHog: Log reviews displayed
-    logMediaDisplayed({ type: 'reviews', count: reviews.length })
-
     const reviewsContainer = document.createElement('div')
     reviewsContainer.className = 'swirl-ai-reviews-container'
 
@@ -8618,13 +8186,9 @@ color: transparent;
     // Detection logs
     if (formattedMedia.videos.length > 0) {
       console.log('[Swirl AI] 🎥 Videos carousel detected')
-      // PostHog: Log videos displayed
-      logMediaDisplayed({ type: 'videos', count: formattedMedia.videos.length })
     }
     if (formattedMedia.images.length > 0) {
       console.log('[Swirl AI] 🖼️ Images carousel detected')
-      // PostHog: Log images displayed
-      logMediaDisplayed({ type: 'images', count: formattedMedia.images.length })
     }
 
     console.log('[Swirl AI] Displaying media:', mediaData)
@@ -9020,7 +8584,6 @@ color: transparent;
   // Replaced by the "Confirm Your Visit" button which calls initiateVisitBooking directly.
   // function handleTimeSlotSelection(date, time) {
   //   console.log(`[Swirl AI] 📅 User selected slot: ${date} at ${time}`)
-  //   logBookingSlotSelected({ date, time })
   //   if (!dataChannel || dataChannel.readyState !== 'open') return
   //   const selectionMessage = `I'd like to book for ${date} at ${time}`
   //   const wasAISpeaking = isAISpeaking
@@ -9119,8 +8682,6 @@ color: transparent;
    */
   function handleLocationCardClick(location) {
     console.log('[Swirl AI] 📍 Location card clicked:', location)
-    // PostHog: Log location selected
-    logLocationSelected({ locationName: location.name || 'unknown' })
 
     if (!dataChannel || dataChannel.readyState !== 'open') {
       console.error('[Swirl AI] ❌ Cannot send - DataChannel not ready')
