@@ -1,0 +1,166 @@
+{
+  "tier": "Legacy Series",
+  "tier_level": 4,
+  "description": "Budget / Entry-Level Competitors",
+  "lennox_models": [
+    "13ACX",
+    "16ACX",
+    "XC13"
+  ],
+  "lennox_baseline": {
+    "seer_range": "13-16 SEER",
+    "compressor": "Single-stage to two-stage",
+    "warranty_parts_years": 5,
+    "warranty_compressor_years": 5
+  },
+  "competitors": [
+    {
+      "id": "trane-xr13",
+      "brand": "Trane",
+      "model_name": "XR13",
+      "series": "XR",
+      "price_tier": "$",
+      "seer2": 13.8,
+      "noise_db": 74,
+      "compressor_type": "Single-stage",
+      "compressor_detail": "Single-stage Climatuff",
+      "smart_platform": "Standard thermostat",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Legacy reaches up to 16 SEER vs Trane XR13's 13.8 SEER2. Trane offers 10-year parts and compressor warranty vs Lennox's 5-year. Trane's wide parts availability and dealer network are key advantages at this budget tier.",
+      "comparable_lennox_ids": [
+        "13acx",
+        "xc13"
+      ]
+    },
+    {
+      "id": "goodman-gsx13",
+      "brand": "Goodman",
+      "model_name": "GSX13",
+      "series": "GSX",
+      "price_tier": "$",
+      "seer": 13,
+      "seer2": null,
+      "seer2_notes": "Listed as 13 SEER",
+      "noise_db": 74,
+      "noise_notes": "Approximately 72-74 dBA",
+      "compressor_type": "Single-stage",
+      "smart_platform": "Standard thermostat",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": null,
+      "warranty_compressor_notes": "Lifetime compressor warranty",
+      "lennox_advantage": "Lennox Legacy reaches up to 16 SEER vs Goodman GSX13's 13 SEER. Goodman offers a lifetime compressor warranty and 10-year parts vs Lennox's 5-year. Goodman is the most budget-friendly option in this tier.",
+      "comparable_lennox_ids": [
+        "13acx",
+        "xc13"
+      ]
+    },
+    {
+      "id": "goodman-gsx14",
+      "brand": "Goodman",
+      "model_name": "GSX14",
+      "series": "GSX",
+      "price_tier": "$",
+      "seer": 15,
+      "seer2": null,
+      "seer2_notes": "Listed as 15 SEER",
+      "noise_db": 72,
+      "noise_notes": "Approximately 72-74 dBA",
+      "compressor_type": "Single-stage",
+      "smart_platform": "Standard thermostat",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": null,
+      "warranty_compressor_notes": "Lifetime compressor warranty",
+      "lennox_advantage": "Lennox Legacy reaches up to 16 SEER vs Goodman GSX14's 15 SEER. Goodman offers lifetime compressor warranty and 10-year parts vs Lennox's 5-year. Lennox counters with quieter operation and stronger build quality.",
+      "comparable_lennox_ids": [
+        "13acx",
+        "16acx"
+      ]
+    },
+    {
+      "id": "amana-asxh5",
+      "brand": "Amana",
+      "model_name": "ASXH5",
+      "series": "ASXH",
+      "price_tier": "$",
+      "seer2": 15.2,
+      "noise_db": 72,
+      "compressor_type": "Single-stage",
+      "compressor_detail": "Single-stage scroll",
+      "smart_platform": "Standard thermostat",
+      "refrigerant_type": "R-32",
+      "refrigerant_notes": "Amana introducing R-32 on new ASXH5 models",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Legacy reaches up to 16 SEER vs Amana ASXH5's 15.2 SEER2. Amana offers 10-year parts and compressor warranty vs Lennox's 5-year. Amana's move to R-32 refrigerant gives it a future-proofing edge.",
+      "comparable_lennox_ids": [
+        "16acx",
+        "13acx"
+      ]
+    },
+    {
+      "id": "rheem-ruud-base-14",
+      "brand": "Rheem/Ruud",
+      "model_name": "Base 14",
+      "series": "Base",
+      "price_tier": "$",
+      "seer2": 14.0,
+      "noise_db": 74,
+      "compressor_type": "Single‑stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Legacy tops 16 SEER vs Rheem/Ruud Base 14's 14 SEER2; Rheem counters with 10‑year parts and compressor coverage and easier parts availability.",
+      "comparable_lennox_ids": ["13acx", "xc13"]
+    },
+    {
+      "id": "rheem-ruud-base-15",
+      "brand": "Rheem/Ruud",
+      "model_name": "Base 15",
+      "series": "Base",
+      "price_tier": "$$",
+      "seer2": 15.0,
+      "noise_db": 72,
+      "compressor_type": "Single‑stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Legacy reaches 16 SEER vs Rheem/Ruud Base 15's 15 SEER2; Rheem offers strong 10‑year warranty and broad service network, while Lennox delivers slightly better efficiency and quieter models.",
+      "comparable_lennox_ids": ["16acx", "13acx"]
+    },
+    {
+      "id": "carrier-comfort-base-14",
+      "brand": "Carrier",
+      "model_name": "Comfort Base 14",
+      "series": "Comfort",
+      "price_tier": "$",
+      "seer2": 14.0,
+      "noise_db": 74,
+      "compressor_type": "Single-stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Legacy reaches 16 SEER vs Carrier Comfort Base 14's 14 SEER2; Carrier counters with budget‑friendly pricing and 10‑year parts and compressor warranty.",
+      "comparable_lennox_ids": ["13acx", "xc13"]
+    },
+    {
+      "id": "carrier-comfort-base-16",
+      "brand": "Carrier",
+      "model_name": "Comfort Base 16",
+      "series": "Comfort",
+      "price_tier": "$$",
+      "seer2": 16.5,
+      "noise_db": 72,
+      "compressor_type": "Single-stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Carrier Comfort Base 16 matches Lennox Legacy's top‑end SEER while offering 10‑year parts and compressor coverage; Lennox's edge is slightly better humidity control and quieter operation in some models.",
+      "comparable_lennox_ids": ["16acx", "xc13"]
+    }
+  ]
+}

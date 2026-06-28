@@ -1,0 +1,169 @@
+{
+  "tier": "Signature Collection",
+  "tier_level": 1,
+  "description": "Ultra-Premium Competitors",
+  "lennox_models": [
+    "SL28XCV",
+    "SL25KCV",
+    "XC21",
+    "XC20"
+  ],
+  "lennox_baseline": {
+    "seer_range": "Up to 28 SEER / 25.8 SEER2",
+    "compressor": "Variable-capacity",
+    "noise_db": 51,
+    "smart_tech": "iComfort S40 thermostat, Alexa/Google compatible",
+    "special_features": "Solar-ready, precise humidity control (removes 30% more moisture)",
+    "warranty_parts_years": 10,
+    "warranty_compressor_years": 10,
+    "warranty_notes": "Registered; 5yr labor via Premier Dealers",
+    "lifespan_years": "15-18"
+  },
+  "competitors": [
+    {
+      "id": "carrier-infinity-26",
+      "brand": "Carrier",
+      "model_name": "Infinity 26",
+      "series": "Infinity",
+      "price_tier": "$$$$",
+      "seer": 26,
+      "seer2": 24.0,
+      "seer2_notes": "24 SEER2 (original); 21 SEER2 (new model 26VNA1)",
+      "noise_db": 51,
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "Greenspeed Intelligence",
+      "smart_platform": "Infinity System Control",
+      "refrigerant_type": "Puron Advance (low GWP)",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered within 90 days",
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox SL28XCV achieves 28 SEER vs Carrier's 26 SEER. Both equally quiet at 51 dBA. Lennox offers solar-ready options and iComfort smart ecosystem. Carrier counters with Puron Advance low-GWP refrigerant and Greenspeed Intelligence.",
+      "comparable_lennox_ids": [
+        "sl28xcv",
+        "sl25kcv"
+      ]
+    },
+    {
+      "id": "trane-xv20i",
+      "brand": "Trane",
+      "model_name": "XV20i",
+      "series": "XV",
+      "price_tier": "$$$$",
+      "seer": 22,
+      "seer2": 21.5,
+      "noise_db": 54,
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "Climatuff Variable Speed, 750 stages",
+      "smart_platform": "ComfortLink II",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": null,
+      "warranty_compressor_notes": "Lifetime (XV20i, registered)",
+      "lennox_advantage": "Lennox SL28XCV delivers 28 SEER vs Trane's 22 SEER and is quieter at 51 dBA vs 54 dBA. Lennox offers solar-ready capability. Trane counters with a lifetime compressor warranty (registered) and reputation for extreme durability.",
+      "comparable_lennox_ids": [
+        "sl28xcv",
+        "sl25kcv",
+        "xc21"
+      ]
+    },
+    {
+      "id": "american-standard-platinum-20",
+      "brand": "American Standard",
+      "model_name": "Platinum 20",
+      "series": "Platinum",
+      "price_tier": "$$$$",
+      "seer": 22,
+      "seer2": 21.0,
+      "seer2_notes": "Approximate",
+      "noise_db": 54,
+      "noise_notes": "Claims 4 dB below nearest competitor",
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "Duration Variable Speed inverter-driven",
+      "smart_platform": "AccuLink",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox SL28XCV achieves 28 SEER vs American Standard's 22 SEER. Lennox is quieter at 51 dBA vs ~54 dBA. American Standard shares Trane's build quality (same parent company) and claims quietest operation vs nearest competitor at its tier.",
+      "comparable_lennox_ids": [
+        "sl28xcv",
+        "sl25kcv",
+        "xc21"
+      ]
+    },
+    {
+      "id": "bryant-evolution-extreme",
+      "brand": "Bryant",
+      "model_name": "Evolution Extreme",
+      "series": "Evolution",
+      "price_tier": "$$$$",
+      "seer": 24,
+      "seer2": 21.0,
+      "seer2_notes": "Standard model 21 SEER2; Extreme 26 model up to 24 SEER2",
+      "noise_db": 55,
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "1% increment capacity adjustments, rotary compressor",
+      "smart_platform": "Evolution Connex Control",
+      "refrigerant_type": "Puron Advance (low GWP)",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 10,
+      "warranty_compressor_notes": "Red Shield 10yr unit replacement (compressor failure only)",
+      "lennox_advantage": "Lennox SL28XCV reaches 28 SEER vs Bryant's 24 SEER and is quieter at 51 dBA vs 55 dBA. Bryant counters with Puron Advance low-GWP refrigerant and a Red Shield unit replacement warranty on compressor failure.",
+      "comparable_lennox_ids": [
+        "sl28xcv",
+        "sl25kcv"
+      ]
+    },
+    {
+      "id": "daikin-dx20vc",
+      "brand": "Daikin",
+      "model_name": "DX20VC",
+      "series": "DX",
+      "price_tier": "$$$",
+      "seer": 24.5,
+      "seer2": null,
+      "seer2_notes": "Pre-SEER2 rating; listed as up to 24.5 SEER",
+      "noise_db": 57,
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "Daikin Inside variable-speed swing/scroll",
+      "smart_platform": "Daikin One+",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 12,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 12,
+      "warranty_compressor_notes": "12yr unit replacement limited warranty",
+      "lennox_advantage": "Lennox SL28XCV achieves 28 SEER vs Daikin's 24.5 SEER and is quieter at 51 dBA vs 57 dBA. Daikin counters with an industry-leading 12-year parts and 12-year unit replacement warranty, plus Daikin One+ smart thermostat integration.",
+      "comparable_lennox_ids": [
+        "sl28xcv",
+        "sl25kcv",
+        "xc21"
+      ]
+    },
+    {
+      "id": "rheem-prestige-ra20",
+      "brand": "Rheem",
+      "model_name": "Prestige RA20",
+      "series": "Prestige",
+      "price_tier": "$$$",
+      "seer": 20.5,
+      "seer2": 19.0,
+      "seer2_notes": "19 SEER2 on new R-454B models",
+      "noise_db": null,
+      "noise_notes": "Not specified; improved with inverter technology",
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "Copeland Scroll Variable Speed, overdrive to 107F",
+      "smart_platform": "EcoNet",
+      "refrigerant_type": "R-454B (new models)",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox SL28XCV achieves 28 SEER vs Rheem's 20.5 SEER \u2014 the largest efficiency gap at this tier. Rheem counters with EcoNet smart platform, R-454B low-GWP refrigerant on new models, and a strong reputation for customer service.",
+      "comparable_lennox_ids": [
+        "sl28xcv",
+        "xc21",
+        "xc20"
+      ]
+    }
+  ]
+}

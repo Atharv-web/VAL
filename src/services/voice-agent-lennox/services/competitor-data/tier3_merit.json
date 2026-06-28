@@ -1,0 +1,163 @@
+{
+  "tier": "Merit Series",
+  "tier_level": 3,
+  "description": "Mid-Tier / Value Competitors",
+  "lennox_models": [
+    "ML18XC2",
+    "ML17XC1",
+    "ML17KC2",
+    "ML14XC1",
+    "ML14KC1",
+    "ML13KC1"
+  ],
+  "lennox_baseline": {
+    "seer_range": "13-18 SEER / up to 18.0 SEER2",
+    "compressor": "Two-stage and single-stage",
+    "warranty_parts_years": 5,
+    "warranty_compressor_years": 5
+  },
+  "competitors": [
+    {
+      "id": "goodman-gsxc18",
+      "brand": "Goodman",
+      "model_name": "GSXC18",
+      "series": "GSXC",
+      "price_tier": "$$",
+      "seer": 19,
+      "seer2": null,
+      "seer2_notes": "Listed as up to 19 SEER",
+      "noise_db": 68,
+      "compressor_type": "Two-stage",
+      "compressor_detail": "Two-stage Copeland",
+      "smart_platform": "ComfortBridge",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": null,
+      "warranty_compressor_notes": "Lifetime compressor warranty",
+      "lennox_advantage": "Lennox Merit tops at 18 SEER vs Goodman GSXC18's 19 SEER \u2014 Goodman edges Lennox on efficiency here. Goodman offers a lifetime compressor warranty and 10-year parts vs Lennox's 5-year. Lennox counters with quieter operation and stronger brand reputation.",
+      "comparable_lennox_ids": [
+        "ml18xc2",
+        "ml17xc1"
+      ]
+    },
+    {
+      "id": "goodman-gsxc16",
+      "brand": "Goodman",
+      "model_name": "GSXC16",
+      "series": "GSXC",
+      "price_tier": "$$",
+      "seer": 17,
+      "seer2": null,
+      "seer2_notes": "Listed as up to 17 SEER",
+      "noise_db": 68,
+      "noise_notes": "Approximately same as GSXC18",
+      "compressor_type": "Two-stage",
+      "smart_platform": "ComfortBridge",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": null,
+      "warranty_compressor_notes": "Lifetime compressor warranty",
+      "lennox_advantage": "Comparable efficiency to Lennox Merit's 17 SEER models. Goodman offers lifetime compressor warranty and 10-year parts vs Lennox's 5-year. Lennox counters with stronger build quality and brand premium.",
+      "comparable_lennox_ids": [
+        "ml17xc1",
+        "ml17kc2"
+      ]
+    },
+    {
+      "id": "amana-asxc7",
+      "brand": "Amana",
+      "model_name": "ASXC7",
+      "series": "ASXC",
+      "price_tier": "$$",
+      "seer2": 17.2,
+      "noise_db": null,
+      "noise_notes": "Not specified",
+      "compressor_type": "Two-stage",
+      "compressor_detail": "Two-Stage Copeland Ultra-Tech scroll",
+      "smart_platform": "ComfortBridge + CoolCloud Bluetooth",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Merit matches Amana ASXC7 on efficiency at this tier. Amana offers 10-year parts and compressor warranty vs Lennox's 5-year. Amana's CoolCloud Bluetooth diagnostics add modern serviceability. Lennox counters with broader model range and dealer network.",
+      "comparable_lennox_ids": [
+        "ml17xc1",
+        "ml17kc2",
+        "ml14xc1"
+      ]
+    },
+    {
+      "id": "trane-xr14",
+      "brand": "Trane",
+      "model_name": "XR14",
+      "series": "XR",
+      "price_tier": "$$",
+      "seer2": 14.8,
+      "noise_db": 74,
+      "noise_notes": "Approximately 72-74 dBA",
+      "compressor_type": "Single-stage",
+      "compressor_detail": "Single-stage Climatuff",
+      "smart_platform": "Standard thermostat",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Merit ranges up to 18 SEER vs Trane XR14's 14.8 SEER2. Trane offers 10-year parts warranty vs Lennox's 5-year. Trane's reputation for durability and easier part availability are key advantages.",
+      "comparable_lennox_ids": [
+        "ml14xc1",
+        "ml14kc1"
+      ]
+    },
+    {
+      "id": "trane-xr15",
+      "brand": "Trane",
+      "model_name": "XR15",
+      "series": "XR",
+      "price_tier": "$$",
+      "seer2": 15.6,
+      "noise_db": 72,
+      "noise_notes": "Approximately 72 dBA",
+      "compressor_type": "Single-stage",
+      "compressor_detail": "Single-stage Climatuff",
+      "smart_platform": "Standard thermostat",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Merit reaches up to 18 SEER vs Trane XR15's 15.6 SEER2. Trane offers 10-year parts vs Lennox's 5-year. Lennox provides a broader tier range with two-stage options at this level.",
+      "comparable_lennox_ids": [
+        "ml14xc1",
+        "ml17xc1"
+      ]
+    },
+    {
+      "id": "carrier-comfort-14",
+      "brand": "Carrier",
+      "model_name": "Comfort 14",
+      "series": "Comfort",
+      "price_tier": "$$",
+      "seer2": 16.0,
+      "noise_db": 72,
+      "compressor_type": "Single-stage",
+      "refrigerant_type": "Puron Advance",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Merit up to 18 SEER2 beats Carrier Comfort 14 on efficiency; Carrier offers broader dealer support and a 10‑year parts and compressor warranty.",
+      "comparable_lennox_ids": ["ml14xc1", "ml14kc1"]
+    },
+    {
+      "id": "carrier-comfort-16",
+      "brand": "Carrier",
+      "model_name": "Comfort 16",
+      "series": "Comfort",
+      "price_tier": "$$",
+      "seer2": 16.5,
+      "noise_db": 71,
+      "compressor_type": "Single-stage",
+      "refrigerant_type": "Puron Advance",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Merit matches or exceeds Carrier Comfort 16 on SEER; Carrier's Comfort series offers Puron Advance refrigerant and standard 10‑year warranty package.",
+      "comparable_lennox_ids": ["ml17xc1", "ml17kc2"]
+    }
+  ]
+}

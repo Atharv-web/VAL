@@ -1,0 +1,153 @@
+{
+  "tier": "Elite Series",
+  "tier_level": 2,
+  "description": "Premium Mid-Range Competitors",
+  "lennox_models": [
+    "EL23XCV",
+    "EL22KCV",
+    "EL18XCV",
+    "EL18KCV",
+    "EL17XC1",
+    "EL16XC1",
+    "EL16KC1",
+    "EL15KC1"
+  ],
+  "lennox_baseline": {
+    "seer_range": "15-23 SEER (varies by model)",
+    "compressor": "Variable-capacity to single-stage (model dependent)",
+    "warranty_parts_years": 5,
+    "warranty_compressor_years": 10,
+    "warranty_notes": "Registered"
+  },
+  "competitors": [
+    {
+      "id": "carrier-performance-16",
+      "brand": "Carrier",
+      "model_name": "Performance 16",
+      "series": "Performance",
+      "price_tier": "$$$",
+      "seer2": 16.0,
+      "noise_db": 72,
+      "compressor_type": "Two-stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Elite variable‑capacity units can outperform Carrier Performance 16 on efficiency and dehumidification; Carrier counters with a strong 10‑year parts and compressor warranty.",
+      "comparable_lennox_ids": ["el16xc1", "el16kc1"]
+    },
+    {
+      "id": "carrier-performance-18",
+      "brand": "Carrier",
+      "model_name": "Performance 18",
+      "series": "Performance",
+      "price_tier": "$$$$",
+      "seer2": 18.0,
+      "noise_db": 66,
+      "compressor_type": "Two-stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Elite models reach up to 23 SEER vs Carrier Performance 18's 18 SEER2, but Carrier offers quieter two‑stage operation and a 10‑year warranty umbrella.",
+      "comparable_lennox_ids": ["el18xcv", "el22kcv"]
+    },
+    {
+      "id": "trane-xv18",
+      "brand": "Trane",
+      "model_name": "XV18",
+      "series": "XV",
+      "price_tier": "$$$",
+      "seer2": 18.0,
+      "noise_db": 58,
+      "compressor_type": "Variable-speed",
+      "compressor_detail": "Climatuff Variable Speed",
+      "smart_platform": "ComfortLink II",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered",
+      "warranty_compressor_years": 10,
+      "warranty_compressor_notes": "10 or 12 years depending on model",
+      "lennox_advantage": "Lennox Elite range extends up to 23 SEER, outpacing Trane XV18's 18 SEER2. Trane XV18 is quieter at 58 dBA vs Lennox Elite's ~65 dBA. Trane offers a 10-year parts warranty vs Lennox's 5-year at this tier.",
+      "comparable_lennox_ids": [
+        "el23xcv",
+        "el22kcv",
+        "el18xcv"
+      ]
+    },
+    {
+      "id": "trane-xr16",
+      "brand": "Trane",
+      "model_name": "XR16",
+      "series": "XR",
+      "price_tier": "$$",
+      "seer2": 16.2,
+      "noise_db": 72,
+      "compressor_type": "Two-stage",
+      "compressor_detail": "Climatuff two-stage",
+      "smart_platform": "ComfortLink II",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_parts_notes": "Registered; 10-year parts and compressor",
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Elite offers up to 23 SEER with variable-capacity options vs Trane XR16's 16.2 SEER2 two-stage. Trane XR16 offers 10-year parts warranty vs Lennox's 5-year at this tier.",
+      "comparable_lennox_ids": [
+        "el16xc1",
+        "el16kc1",
+        "el15kc1"
+      ]
+    },
+    {
+      "id": "bryant-preferred-16",
+      "brand": "Bryant",
+      "model_name": "Preferred 16",
+      "series": "Preferred",
+      "price_tier": "$$$",
+      "seer2": 16.5,
+      "noise_db": 72,
+      "compressor_type": "Single‑stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Elite can reach 23 SEER vs Bryant Preferred 16's 16.5 SEER2; Bryant offers 10‑year parts and compressor warranty and broad dealer support.",
+      "comparable_lennox_ids": ["el16xc1", "el16kc1"]
+    },
+    {
+      "id": "bryant-preferred-18",
+      "brand": "Bryant",
+      "model_name": "Preferred 18",
+      "series": "Preferred",
+      "price_tier": "$$$",
+      "seer2": 18.0,
+      "noise_db": 71,
+      "compressor_type": "Two‑stage",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "lennox_advantage": "Lennox Elite out‑ranges Bryant Preferred 18 on maximum SEER but Bryant delivers 10‑year warranty, two‑stage comfort and Evolution Connex smart control.",
+      "comparable_lennox_ids": ["el18xcv", "el17xc1"]
+    },
+    {
+      "id": "rheem-prestige-2stage",
+      "brand": "Rheem",
+      "model_name": "Prestige 2-Stage",
+      "series": "Prestige",
+      "price_tier": "$$$",
+      "seer": 17,
+      "seer2": null,
+      "seer2_notes": "Listed as up to 17 SEER",
+      "noise_db": 71,
+      "compressor_type": "Two-stage",
+      "compressor_detail": "Two-Stage Scroll compressor",
+      "smart_platform": "Comfort Control2 communicating",
+      "refrigerant_type": "R-410A",
+      "warranty_parts_years": 10,
+      "warranty_compressor_years": 10,
+      "warranty_compressor_notes": "Conditional total unit replacement warranty - 10 years",
+      "lennox_advantage": "Lennox Elite range tops at 23 SEER vs Rheem Prestige 2-Stage's 17 SEER. Rheem offers 10-year parts and a conditional unit replacement warranty vs Lennox's 5-year parts. Rheem's EcoNet-compatible models offer strong smart home integration.",
+      "comparable_lennox_ids": [
+        "el17xc1",
+        "el16xc1",
+        "el15kc1"
+      ]
+    }
+  ]
+}
